@@ -8,7 +8,8 @@ if [ "$EUID" -ne 0 ]; then
     echo "Por favor, ejecuta este script como root."
     exit 1
 fi
-
+echo -e "${GREEN}Adaptadores de red detectados:${NC}"
+ip -o link show | awk -F': ' '{print NR". "$2}'
 # Pedir datos al usuario
 read -p "Ingrese la interfaz de red para el servidor DHCP (e.g., eth0): " INTERFACE
 read -p "Ingrese el rango inicial de direcciones IP (e.g., 192.168.1.100): " RANGE_START
